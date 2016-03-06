@@ -14,17 +14,14 @@ import javafx.util.Duration;
 /**
  * Sample custom control hosting a text field and a button.
  */
-public class RequestControl extends VBox {
+public class RequestControl extends HBox {
     private static int id = 0;
     final Clipboard clipboard = Clipboard.getSystemClipboard();
     final ClipboardContent content = new ClipboardContent();
-    private HBox hBox;
     private VBox layout;
 
     public RequestControl(VBox layout, String message) {
         this.layout = layout;
-        hBox = new HBox();
-        hBox.setId(String.valueOf(id));
         this.setId(String.valueOf(id));
         id++;
         Button copyBtn = new Button("Copy");
@@ -36,11 +33,9 @@ public class RequestControl extends VBox {
 
         label.setMinSize(250, USE_COMPUTED_SIZE);
         label.setPadding(new Insets(4, 10, 4, 10));
-        hBox.getChildren().add(label);
-        hBox.getChildren().add(copyBtn);
-        hBox.getChildren().add(delBtn);
-
-        layout.getChildren().add(hBox);
+        this.getChildren().add(label);
+        this.getChildren().add(copyBtn);
+        this.getChildren().add(delBtn);
 
     }
 
@@ -51,13 +46,12 @@ public class RequestControl extends VBox {
         clipboard.setContent(content);
 
         //animate and remove the node if there is only one node on the screen
-        if (layout.getChildren().size() == 2) { // 2 because hBox and RequestControl are both nodes that are added
-            TranslateTransition closeNav = new TranslateTransition(new Duration(350), hBox);
-            closeNav.setToY(-hBox.getHeight());
+        if (layout.getChildren().size() == 1) {
+            TranslateTransition closeNav = new TranslateTransition(new Duration(350), this);
+            closeNav.setToY(-this.getHeight());
             closeNav.play();
             closeNav.setOnFinished(event -> {
                 layout.getChildren().remove(this);
-                layout.getChildren().remove(hBox);
             });
         }
 
@@ -66,17 +60,16 @@ public class RequestControl extends VBox {
             int idNum = Integer.valueOf(node.getId());
 
 
-            if (idNum > Integer.valueOf(hBox.getId())) { // only animate nodes below the one clicked
+            if (idNum > Integer.valueOf(this.getId())) { // only animate nodes below the one clicked
 
 
                 TranslateTransition closeNav = new TranslateTransition(new Duration(350), node);
-                closeNav.setToY(-hBox.getHeight());
+                closeNav.setToY(-this.getHeight());
                 closeNav.play();
 
                 closeNav.setOnFinished(event -> {
                     layout.getChildren().remove(this);
-                    layout.getChildren().remove(hBox);
-                    layout.getChildren().stream().filter(node2 -> idNum > Integer.valueOf(hBox.getId())).forEach(node2 -> {
+                    layout.getChildren().stream().filter(node2 -> idNum > Integer.valueOf(this.getId())).forEach(node2 -> {
                         TranslateTransition closeNav2 = new TranslateTransition(new Duration(1), node2);
                         closeNav2.setToY(0);
                         closeNav2.play();
@@ -88,12 +81,11 @@ public class RequestControl extends VBox {
     }
 
     private void delete() {
-        TranslateTransition closeNav = new TranslateTransition(new Duration(350), hBox);
-        closeNav.setToX(hBox.getWidth());
+        TranslateTransition closeNav = new TranslateTransition(new Duration(350), this);
+        closeNav.setToX(this.getWidth());
         closeNav.play();
         closeNav.setOnFinished(event -> {
             layout.getChildren().remove(this);
-            layout.getChildren().remove(hBox);
 
         });
 

@@ -18,26 +18,18 @@ public class Bot extends PircBot {
     public void onMessage(String channel, String sender, String login, String hostname, String message) {
 
         if (message.startsWith("!request")) {
-            try {
-                message = message.substring(message.indexOf(' '));
-            } catch (Exception e) {
-                sendMessage(CHANNEL, "Invalid Syntax");
-            }
-            interfaceCallback.request(message);
-            sendMessage(CHANNEL, "Request accepted");
-        } else if (message.equalsIgnoreCase("!dwagoninfo")) {
 
-            if (sender.equalsIgnoreCase("blooddragon262626")) {
-                sendMessage(CHANNEL, "Hello Big Bad Dwagon! I am DwagonBot. RAWR");
-            } else if (sender.equalsIgnoreCase("taylorsamy")) {
-                sendMessage(CHANNEL, "Hello Smol baby Dwagon! I am DwagonBot. RAWR");
+            message = message.replace("!request ", "");
+
+            if (message.matches("(\\d+)")) {
+                interfaceCallback.request(message);
+                sendMessage(CHANNEL, "Request accepted");
 
             } else {
-
-                sendMessage(CHANNEL, "Hello " + sender + ", I am DwagonBot. RAWR");
+                sendMessage(CHANNEL, "dumbass");
             }
-        }
 
+        }
     }
 
     public interface Test {

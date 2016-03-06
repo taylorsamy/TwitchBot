@@ -7,6 +7,7 @@ import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -17,7 +18,6 @@ public class Main extends Application implements Bot.Test {
     *
     *
     * FEATURE REQUEST
-    * Broadcast -- text field that sends message
     * COnfig files.
     *
     *
@@ -41,9 +41,10 @@ public class Main extends Application implements Bot.Test {
 
         primaryStage.setTitle("Dwagon Bot");
         layout = new VBox();
+        layout.setStyle("-fx-border-color: red;");
         BorderPane root = new BorderPane();
-        layout.setMinSize(355, 50);
-        layout.setMaxSize(355, 500);
+        layout.setMinSize(355, Region.USE_PREF_SIZE);
+        layout.setMaxSize(355, Region.USE_PREF_SIZE);
         root.setRight(layout);
 
         TextField messageField = new TextField();
@@ -59,15 +60,6 @@ public class Main extends Application implements Bot.Test {
         Scene scene = new Scene(root, 700, 500);
         primaryStage.setScene(scene);
         primaryStage.show();
-        request("test1");
-        request("test2");
-        request("test3");
-        request("test4");
-        request("test5");
-        request("test6");
-        request("test7");
-        request("test8");
-        request("test9");
 
 
     }
@@ -76,6 +68,7 @@ public class Main extends Application implements Bot.Test {
     public void stop() throws Exception {
         super.stop();
         bot.dispose();
+
     }
 
     @Override
