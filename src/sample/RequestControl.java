@@ -50,11 +50,8 @@ public class RequestControl extends HBox {
             TranslateTransition closeNav = new TranslateTransition(new Duration(350), this);
             closeNav.setToY(-this.getHeight());
             closeNav.play();
-            closeNav.setOnFinished(event -> {
-                layout.getChildren().remove(this);
-            });
+            closeNav.setOnFinished(event -> layout.getChildren().remove(this));
         }
-
 
         for (Node node : layout.getChildren()) {
             int idNum = Integer.valueOf(node.getId());
@@ -76,7 +73,6 @@ public class RequestControl extends HBox {
                     });
                 });
             }
-
         }
     }
 
@@ -88,7 +84,5 @@ public class RequestControl extends HBox {
             layout.getChildren().remove(this);
 
         });
-
-
     }
 }
