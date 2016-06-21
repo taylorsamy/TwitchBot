@@ -19,10 +19,6 @@ public class Main extends Application implements Bot.Test {
     *
     * FEATURE REQUEST
     * COnfig files.
-    * !request, write requests to file, if request already exists, deny new request
-    *
-    * random rawr
-    *
     *
     * */
     Bot bot;
@@ -37,13 +33,13 @@ public class Main extends Application implements Bot.Test {
         bot.interfaceCallback = this;
         bot.setVerbose(true);
         bot.connect("irc.twitch.tv", 6667, "oauth:sor43nnq1reyfkfnifs9dbmtwaejjd");
-        //bot.connect("irc.twitch.tv", 6667, "oauth:bwdomar6z45jhth006p494w6qvbr0z"); my crappy bot
+        // bot.connect("irc.twitch.tv", 6667, "oauth:bwdomar6z45jhth006p494w6qvbr0z");// my crappy bot
 
         bot.joinChannel(Bot.CHANNEL);
 
         primaryStage.setTitle("Dwagon Bot");
         layout = new VBox();
-        layout.setStyle("-fx-border-color: black;");
+        layout.setStyle("-fx-border-color: #000000;");
         BorderPane root = new BorderPane();
         layout.setMinSize(400, Region.USE_PREF_SIZE);
         layout.setMaxSize(400, Region.USE_PREF_SIZE);
