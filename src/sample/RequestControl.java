@@ -31,7 +31,9 @@ public class RequestControl extends HBox {
         copyBtn.setOnAction(event -> copy(message));
         delBtn.setOnAction(event -> delete());
 
-        label.setMinSize(250, USE_COMPUTED_SIZE);
+        label.setMinSize(215, USE_COMPUTED_SIZE);
+        copyBtn.setMinSize(USE_COMPUTED_SIZE, USE_COMPUTED_SIZE);
+        delBtn.setMinSize(USE_COMPUTED_SIZE, USE_COMPUTED_SIZE);
         label.setPadding(new Insets(4, 10, 4, 10));
         this.getChildren().add(label);
         this.getChildren().add(copyBtn);

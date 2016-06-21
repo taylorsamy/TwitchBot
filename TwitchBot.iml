@@ -10,11 +10,20 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../pircbot-1.5.0/pircbot-1.5.0/pircbot.jar!/" />
+          <root url="jar://$MODULE_DIR$/dependancies/json-simple-1.1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/dependancies/pircbot.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$MODULE_DIR$/../pircbot-1.5.0/pircbot-1.5.0/pircbot.jar!/" />
+          <root url="jar://$MODULE_DIR$/dependancies/pircbot.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
