@@ -1,14 +1,12 @@
-{
-  "Commands:": [
-    "triggertone",
-    "permtwo",
-    "messagethree"
-  ]
-}
-{
-  "Commands:": [
-    "triggertest",
-    "permrawr",
-    "messagefail"
-  ]
-}
+[
+  {
+    "rank": 2,
+    "trigger": "!test",
+    "message": "this is a test"
+  },
+  {
+    "rank": 2,
+    "trigger": "!test2",
+    "message": "this is a test2"
+  }
+]

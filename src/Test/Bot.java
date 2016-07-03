@@ -2,6 +2,7 @@ package test;
 
 import org.jibble.pircbot.PircBot;
 import test.modules.CommandModule;
+import test.modules.QuoteModule;
 
 import java.util.ArrayList;
 
@@ -18,7 +19,9 @@ public class Bot extends PircBot {
         this.setName("DwagonBot");
         this.isConnected();
         CommandModule commandModule = new CommandModule();
+        QuoteModule quoteModule = new QuoteModule();
         modules.add(commandModule);
+        modules.add(quoteModule);
     }
 
     @Override
